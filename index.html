@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Universe - Official Fan Site</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS as comment as required -->
+    <!--
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== ANIMATED PARTICLE BACKGROUND ===== */
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        .particles-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+            background-size: 200px 200px;
+            animation: particlesFloat 60s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes particlesFloat {
+            from { transform: translateY(0); }
+            to { transform: translateY(-200px); }
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(237, 29, 36, 0.3);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 4px 20px rgba(237, 29, 36, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo-marvel {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(237, 29, 36, 0.5);
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: #F0B90B;
+            letter-spacing: 3px;
+            margin-top: -5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ED1D24;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .burger span {
+            width: 25px;
+            height: 3px;
+            background: #ED1D24;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(237, 29, 36, 0.1) 0%, rgba(21, 21, 21, 0.8) 100%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B, #ED1D24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-title::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(237, 29, 36, 0.5), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: -1;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #ED1D24, #B01E23);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(237, 29, 36, 0.5);
+            border-color: #F0B90B;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 4px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
+        }
+
+        /* ===== HEROES SECTION ===== */
+        .heroes-section {
+            background: linear-gradient(180deg, rgba(21, 21, 21, 0.5) 0%, rgba(237, 29, 36, 0.05) 100%);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #ED1D24, #B01E23);
+            border-color: #F0B90B;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(237, 29, 36, 0.4);
+        }
+
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .hero-card {
+            height: 400px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card.hidden {
+            display: none;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .hero-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-front {
+            background: rgba(21, 21, 21, 0.9);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 30px rgba(237, 29, 36, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card:hover .hero-image {
+            transform: scale(1.1);
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+        }
+
+        .hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-team {
+            color: #F0B90B;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, rgba(237, 29, 36, 0.9), rgba(176, 30, 35, 0.9));
+            transform: rotateY(180deg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-back h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-real-name {
+            color: #F0B90B;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero-description {
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-powers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .hero-powers span {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(240, 185, 11, 0.3);
+        }
+
+        /* ===== TEAMS SECTION ===== */
+        .teams-section {
+            background: linear-gradient(180deg, rgba(237, 29, 36, 0.05) 0%, rgba(21, 21, 21, 0.5) 100%);
+        }
+
+        .team-block {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: rgba(21, 21, 21, 0.6);
+            border-radius: 20px;
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-block:hover {
+            border-color: #ED1D24;
+            box-shadow: 0 10px 40px rgba(237, 29, 36, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .team-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .team-icon {
+            font-size: 2.5rem;
+        }
+
+        .audio-badge {
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #ED1D24, #F0B90B);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin-left: auto;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .team-description {
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .member-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .member-card:hover {
+            background: rgba(237, 29, 36, 0.1);
+            border-color: #ED1D24;
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .member-card span {
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ===== DEFENDERS AUDIO SECTION ===== */
+        .defenders-team {
+            background: linear-gradient(135deg, rgba(237, 29, 36, 0.1), rgba(21, 21, 21, 0.8));
+        }
+
+        .defenders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .defender-card {
+            background: rgba(21, 21, 21, 0.9);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .defender-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(237, 29, 36, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .defender-card:hover::before {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-100%, -100%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
+
+        .defender-card:hover {
+            border-color: #F0B90B;
+            box-shadow: 0 15px 40px rgba(237, 29, 36, 0.4);
+            transform: translateY(-10px);
+        }
+
+        .defender-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .defender-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .defender-card:hover .defender-avatar {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .defender-icon {
+            font-size: 4rem;
+        }
+
+        .defender-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .defender-subtitle {
+            color: #F0B90B;
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .defender-desc {
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .audio-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ED1D24, #B01E23);
+            border: 2px solid #F0B90B;
+            color: #ffffff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .audio-btn:hover {
+            background: linear-gradient(135deg, #F0B90B, #ED1D24);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(240, 185, 11, 0.5);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #00ff00, #008000);
+            border-color: #00ff00;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(0, 255, 0, 0); }
+        }
+
+        .audio-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-section {
+            background: linear-gradient(180deg, rgba(21, 21, 21, 0.5) 0%, rgba(237, 29, 36, 0.05) 100%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ED1D24, #F0B90B);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ED1D24, #F0B90B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(237, 29, 36, 0.6);
+            border: 4px solid #0a0a0a;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: rgba(21, 21, 21, 0.8);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content:hover {
+            border-color: #F0B90B;
+            box-shadow: 0 10px 30px rgba(237, 29, 36, 0.3);
+            transform: scale(1.02);
+        }
+
+        .timeline-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #ED1D24;
+            letter-spacing: 2px;
+        }
+
+        .timeline-year {
+            color: #F0B90B;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .timeline-movies {
+            list-style: none;
+        }
+
+        .timeline-movies li {
+            padding: 0.5rem 0;
+            color: #cccccc;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s ease;
+        }
+
+        .timeline-movies li:hover {
+            color: #ED1D24;
+            padding-left: 10px;
+        }
+
+        /* ===== QUIZ SECTION ===== */
+        .quiz-section {
+            background: linear-gradient(180deg, rgba(237, 29, 36, 0.05) 0%, rgba(21, 21, 21, 0.8) 100%);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(21, 21, 21, 0.8);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .question-counter {
+            text-align: center;
+            color: #F0B90B;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .quiz-question {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .quiz-option:hover {
+            background: rgba(237, 29, 36, 0.2);
+            border-color: #ED1D24;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, #ED1D24, #B01E23);
+            border-color: #F0B90B;
+        }
+
+        .quiz-result {
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .quiz-result.hidden {
+            display: none;
+        }
+
+        .result-hero {
+            padding: 2rem;
+        }
+
+        .result-icon {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .result-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+
+        .result-description {
+            color: #cccccc;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 2px solid rgba(237, 29, 36, 0.3);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #ED1D24, #F0B90B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-text {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ED1D24;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(237, 29, 36, 0.1);
+            border: 2px solid rgba(237, 29, 36, 0.3);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #ED1D24, #F0B90B);
+            border-color: #F0B90B;
+            transform: translateY(-5px) rotate(360deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-disclaimer {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(10, 10, 10, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                padding: 2rem 0;
+                gap: 1rem;
+                border-top: 2px solid rgba(237, 29, 36, 0.3);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-marker {
+                left: 0;
+                transform: translateX(0);
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .heroes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .defenders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .quiz-question {
+                font-size: 1.5rem;
+            }
+        }
+
+            /* ===== HERO MODAL ===== */
+.hero-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.hero-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 10001;
+    background: linear-gradient(135deg, rgba(21, 21, 21, 0.95), rgba(237, 29, 36, 0.1));
+    border: 3px solid #ED1D24;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(237, 29, 36, 0.5);
+    animation: scaleIn 0.3s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: #F0B90B;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #ED1D24;
+    transform: rotate(90deg);
+}
+
+#modalHeroImage {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 3px solid #F0B90B;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#modalHeroName {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ED1D24, #F0B90B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+    </style>
+    -->
+    <!--
+    <script>
+        // ===== NAVIGATION SMOOTH SCROLL & ACTIVE LINK =====
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section, .hero-section');
+        const navbar = document.getElementById('navbar');
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+
+        // Smooth scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                // Close mobile menu
+                navMenu.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            // Navbar background on scroll
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Burger menu toggle
+        burger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            burger.classList.toggle('active');
+        });
+
+        // ===== ANIMATED PARTICLES BACKGROUND =====
+        const particlesBg = document.getElementById('particles');
+        const particleCount = 100;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 3 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = 'white';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.opacity = Math.random() * 0.5;
+            particle.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite`;
+            particlesBg.appendChild(particle);
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ===== HEROES FILTER =====
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const heroCards = document.querySelectorAll('.hero-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                heroCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        if (card.getAttribute('data-category') === filter) {
+                            card.classList.remove('hidden');
+                            card.style.animation = 'fadeInUp 0.5s ease-out';
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+
+        // ===== DEFENDERS AUDIO CONTROL =====
+        const audioButtons = document.querySelectorAll('.audio-btn');
+        let currentlyPlaying = null;
+
+        audioButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const heroName = button.getAttribute('data-hero');
+                const audio = document.getElementById(`audio-${heroName}`);
+                const icon = button.querySelector('.audio-icon');
+                const text = button.querySelector('.audio-text');
+
+                // Stop currently playing audio
+                if (currentlyPlaying && currentlyPlaying !== audio) {
+                    currentlyPlaying.pause();
+                    currentlyPlaying.currentTime = 0;
+                    const prevButton = document.querySelector(`[data-hero="${currentlyPlaying.id.replace('audio-', '')}"]`);
+                    prevButton.classList.remove('playing');
+                    prevButton.querySelector('.audio-icon').textContent = '▶️';
+                    prevButton.querySelector('.audio-text').textContent = 'Воспроизвести тему';
+                }
+
+                // Toggle current audio
+                if (audio.paused) {
+                    audio.play();
+                    button.classList.add('playing');
+                    icon.textContent = '⏸️';
+                    text.textContent = 'Остановить';
+                    currentlyPlaying = audio;
+                } else {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    button.classList.remove('playing');
+                    icon.textContent = '▶️';
+                    text.textContent = 'Воспроизвести тему';
+                    currentlyPlaying = null;
+                }
+
+                // Reset button when audio ends
+                audio.addEventListener('ended', () => {
+                    button.classList.remove('playing');
+                    icon.textContent = '▶️';
+                    text.textContent = 'Воспроизвести тему';
+                    currentlyPlaying = null;
+                });
+            });
+        });
+
+        // ===== QUIZ LOGIC =====
+        const quizQuestions = [
+            {
+                question: 'Какая у вас суперсила?',
+                options: [
+                    { text: 'Невероятная сила', hero: 'hulk' },
+                    { text: 'Технологический гений', hero: 'ironman' },
+                    { text: 'Лидерские качества', hero: 'cap' },
+                    { text: 'Магия и мистика', hero: 'strange' }
+                ]
+            },
+            {
+                question: 'Где вы предпочитаете сражаться?',
+                options: [
+                    { text: 'На улицах города', hero: 'daredevil' },
+                    { text: 'В высокотехнологичной лаборатории', hero: 'ironman' },
+                    { text: 'На поле боя', hero: 'cap' },
+                    { text: 'В космосе', hero: 'thor' }
+                ]
+            },
+            {
+                question: 'Какое оружие вы выберете?',
+                options: [
+                    { text: 'Мои кулаки', hero: 'hulk' },
+                    { text: 'Высокотехнологичную броню', hero: 'ironman' },
+                    { text: 'Щит', hero: 'cap' },
+                    { text: 'Молот богов', hero: 'thor' }
+                ]
+            },
+            {
+                question: 'Как вы относитесь к работе в команде?',
+                options: [
+                    { text: 'Предпочитаю действовать в одиночку', hero: 'daredevil' },
+                    { text: 'Люблю быть лидером', hero: 'cap' },
+                    { text: 'Работаю в команде, но по-своему', hero: 'ironman' },
+                    { text: 'Команда - это семья', hero: 'fantastic' }
+                ]
+            },
+            {
+                question: 'Что вас мотивирует?',
+                options: [
+                    { text: 'Защита невинных', hero: 'cap' },
+                    { text: 'Месть за прошлое', hero: 'daredevil' },
+                    { text: 'Наука и прогресс', hero: 'ironman' },
+                    { text: 'Честь и слава', hero: 'thor' }
+                ]
+            }
+        ];
+
+        const heroResults = {
+            ironman: {
+                icon: '🦾',
+                name: 'Iron Man',
+                description: 'Вы гениальный изобретатель и новатор! Как Тони Старк, вы полагаетесь на свой интеллект и технологии для решения проблем. Вы не боитесь рисковать и всегда готовы улучшить себя.'
+            },
+            cap: {
+                icon: '🛡️',
+                name: 'Captain America',
+                description: 'Вы прирожденный лидер с непоколебимыми моральными принципами! Как Стив Роджерс, вы всегда делаете правильный выбор и вдохновляете окружающих своим примером.'
+            },
+            thor: {
+                icon: '⚡',
+                name: 'Thor',
+                description: 'Вы благородный воин с могучей силой! Как Тор, вы сражаетесь за честь и справедливость, защищая тех, кто не может защитить себя.'
+            },
+            hulk: {
+                icon: '💚',
+                name: 'Hulk',
+                description: 'В вас скрыта невероятная сила! Как Брюс Беннер, вы можете быть спокойным и интеллектуальным, но когда дело доходит до защиты близких, вы непобедимы.'
+            },
+            daredevil: {
+                icon: '👊',
+                name: 'Daredevil',
+                description: 'Вы борец за справедливость! Как Мэтт Мердок, вы не позволяете препятствиям останавливать вас и всегда защищаете слабых.'
+            },
+            strange: {
+                icon: '🧙',
+                name: 'Doctor Strange',
+                description: 'Вы мастер мистических искусств! Как Стивен Стрэндж, вы используете знания и магию для защиты реальности.'
+            },
+            fantastic: {
+                icon: '🔬',
+                name: 'Mr. Fantastic',
+                description: 'Вы блестящий ученый и исследователь! Как Рид Ричардс, вы используете науку для решения невозможных задач.'
+            }
+        };
+
+        let currentQuestion = 0;
+        let answers = [];
+
+        function loadQuestion() {
+            const question = quizQuestions[currentQuestion];
+            document.getElementById('currentQuestion').textContent = currentQuestion + 1;
+            document.getElementById('totalQuestions').textContent = quizQuestions.length;
+            document.getElementById('quizQuestion').textContent = question.question;
+
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option.text;
+                optionDiv.addEventListener('click', () => selectOption(index, option.hero));
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+
+        function selectOption(index, hero) {
+            answers.push(hero);
+            
+            const options = document.querySelectorAll('.quiz-option');
+            options[index].classList.add('selected');
+
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < quizQuestions.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
+            }, 500);
+        }
+
+        function showResult() {
+            // Count hero occurrences
+            const heroCount = {};
+            answers.forEach(hero => {
+                heroCount[hero] = (heroCount[hero] || 0) + 1;
+            });
+
+            // Find most common hero
+            let maxCount = 0;
+            let resultHero = 'ironman';
+            for (const hero in heroCount) {
+                if (heroCount[hero] > maxCount) {
+                    maxCount = heroCount[hero];
+                    resultHero = hero;
+                }
+            }
+
+            const result = heroResults[resultHero];
+            
+            document.getElementById('quizContent').style.display = 'none';
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.classList.remove('hidden');
+            
+            document.getElementById('resultIcon').textContent = result.icon;
+            document.getElementById('resultName').textContent = result.name;
+            document.getElementById('resultDescription').textContent = result.description;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = [];
+            document.getElementById('quizContent').style.display = 'block';
+            document.getElementById('quizResult').classList.add('hidden');
+            loadQuestion();
+        }
+
+        // Initialize quiz
+        loadQuestion();
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.hero-card, .team-block, .timeline-item, .defender-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // ===== HERO MODAL FUNCTIONALITY =====
+function openHeroModal(heroName, heroImage) {
+    const modal = document.getElementById('heroModal');
+    const modalImage = document.getElementById('modalHeroImage');
+    const modalName = document.getElementById('modalHeroName');
+    
+    modalImage.src = heroImage;
+    modalName.textContent = heroName;
+    modal.classList.add('active');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeHeroModal() {
+    const modal = document.getElementById('heroModal');
+    modal.classList.remove('active');
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeHeroModal();
+    }
+});
+
+// Add click event to all hero cards
+document.querySelectorAll('.hero-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        // Get hero name from card
+        const heroName = card.querySelector('.hero-name').textContent;
+        
+        // Image path - you will replace these with actual images
+        const heroImage = `assets/images/${heroName.toLowerCase().replace(' ', '-')}.jpg`;
+        
+        openHeroModal(heroName, heroImage);
+    });
+});
+
+    </script>
+    -->
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles-bg" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-marvel">MARVEL</span>
+                <span class="logo-subtitle">UNIVERSE</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#heroes" class="nav-link">Heroes</a></li>
+                <li><a href="#teams" class="nav-link">Teams</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#quiz" class="nav-link">Quiz</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" data-text="MARVEL UNIVERSE">MARVEL UNIVERSE</h1>
+            <p class="hero-subtitle">Explore the world of the greatest superheroes</p>
+            <a href="#heroes" class="cta-button">Start Journey</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Heroes Gallery Section -->
+    <section id="heroes" class="section heroes-section">
+        <div class="container">
+            <h2 class="section-title">Heroes Gallery</h2>
+            <p class="section-subtitle">Meet the legendary defenders of the universe</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="avengers">Avengers</button>
+                <button class="filter-btn" data-filter="defenders">Defenders</button>
+                <button class="filter-btn" data-filter="fantastic">Fantastic Four</button>
+                <button class="filter-btn" data-filter="xmen">X-Men</button>
+            </div>
+
+            <!-- Heroes Grid -->
+            <div class="heroes-grid" id="heroesGrid">
+                <!-- Avengers -->
+                <div class="hero-card" data-category="avengers" data-hero-image="iron-man">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);">
+                                <div class="hero-icon">🦾</div>
+                            </div>
+                            <h3 class="hero-name">Iron Man</h3>
+                            <span class="hero-team">Avengers</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Iron Man</h3>
+                            <p class="hero-real-name">Tony Stark</p>
+                            <p class="hero-description">Genius billionaire in high-tech armor. Founder of the Avengers.</p>
+                            <div class="hero-powers">
+                                <span>⚡ Technology</span>
+                                <span>🛡️ Armor</span>
+                                <span>🧠 Genius</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="avengers" data-hero-image="captain-america">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #0a3161 0%, #003d82 100%);">
+                                <div class="hero-icon">🛡️</div>
+                            </div>
+                            <h3 class="hero-name">Captain America</h3>
+                            <span class="hero-team">Avengers</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Captain America</h3>
+                            <p class="hero-real-name">Steve Rogers</p>
+                            <p class="hero-description">The First Avenger. Super soldier and symbol of heroism.</p>
+                            <div class="hero-powers">
+                                <span>💪 Strength</span>
+                                <span>🛡️ Shield</span>
+                                <span>⚔️ Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="avengers" data-hero-image="thor">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #4169e1 0%, #1e3a8a 100%);">
+                                <div class="hero-icon">⚡</div>
+                            </div>
+                            <h3 class="hero-name">Thor</h3>
+                            <span class="hero-team">Avengers</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Thor</h3>
+                            <p class="hero-real-name">Thor Odinson</p>
+                            <p class="hero-description">God of Thunder of Asgard. Wields the mystical hammer Mjolnir.</p>
+                            <div class="hero-powers">
+                                <span>⚡ Lightning</span>
+                                <span>🔨 Mjolnir</span>
+                                <span>💫 Magic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="avengers" data-hero-image="hulk">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #228b22 0%, #006400 100%);">
+                                <div class="hero-icon">💚</div>
+                            </div>
+                            <h3 class="hero-name">Hulk</h3>
+                            <span class="hero-team">Avengers</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Hulk</h3>
+                            <p class="hero-real-name">Bruce Banner</p>
+                            <p class="hero-description">The strongest Avenger. Gamma radiation gave him incredible strength.</p>
+                            <div class="hero-powers">
+                                <span>💪 Super Strength</span>
+                                <span>🛡️ Durability</span>
+                                <span>😤 Rage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Defenders -->
+                <div class="hero-card" data-category="defenders" data-hero-image="luke-cage">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);">
+                                <div class="hero-icon">🥋</div>
+                            </div>
+                            <h3 class="hero-name">Luke Cage</h3>
+                            <span class="hero-team">Defenders</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Luke Cage</h3>
+                            <p class="hero-real-name">Carl Lucas</p>
+                            <p class="hero-description">Harlem hero with unbreakable skin and superhuman strength.</p>
+                            <div class="hero-powers">
+                                <span>💪 Strength</span>
+                                <span>🛡️ Invulnerability</span>
+                                <span>⚔️ Fighter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="defenders" data-hero-image="daredevil">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #8b0000 0%, #4a0000 100%);">
+                                <div class="hero-icon">👊</div>
+                            </div>
+                            <h3 class="hero-name">Daredevil</h3>
+                            <span class="hero-team">Defenders</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Daredevil</h3>
+                            <p class="hero-real-name">Matt Murdock</p>
+                            <p class="hero-description">Blind lawyer by day, crime fighter by night.</p>
+                            <div class="hero-powers">
+                                <span>👂 Echolocation</span>
+                                <span>🥊 Martial Arts</span>
+                                <span>⚖️ Justice</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="defenders" data-hero-image="jessica-jones">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #9370db 0%, #4b0082 100%);">
+                                <div class="hero-icon">💜</div>
+                            </div>
+                            <h3 class="hero-name">Jessica Jones</h3>
+                            <span class="hero-team">Defenders</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Jessica Jones</h3>
+                            <p class="hero-real-name">Jessica Jones</p>
+                            <p class="hero-description">Private investigator with super strength and a troubled past.</p>
+                            <div class="hero-powers">
+                                <span>💪 Strength</span>
+                                <span>🕵️ Detective</span>
+                                <span>🦘 Leaping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="defenders" data-hero-image="iron-fist">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #00ff00 0%, #008000 100%);">
+                                <div class="hero-icon">✊</div>
+                            </div>
+                            <h3 class="hero-name">Iron Fist</h3>
+                            <span class="hero-team">Defenders</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Iron Fist</h3>
+                            <p class="hero-real-name">Danny Rand</p>
+                            <p class="hero-description">Master of martial arts, wielding the mystical power of the Iron Fist.</p>
+                            <div class="hero-powers">
+                                <span>✊ Iron Fist</span>
+                                <span>🥋 Kung Fu</span>
+                                <span>🔥 Chi Energy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fantastic Four -->
+                <div class="hero-card" data-category="fantastic" data-hero-image="mr-fantastic">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #4169e1 0%, #0047ab 100%);">
+                                <div class="hero-icon">🔬</div>
+                            </div>
+                            <h3 class="hero-name">Mr. Fantastic</h3>
+                            <span class="hero-team">Fantastic Four</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Mr. Fantastic</h3>
+                            <p class="hero-real-name">Reed Richards</p>
+                            <p class="hero-description">Genius scientist with an elastic body. Leader of the Fantastic Four.</p>
+                            <div class="hero-powers">
+                                <span>🤸 Elasticity</span>
+                                <span>🧠 Intelligence</span>
+                                <span>🔬 Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="fantastic" data-hero-image="invisible-woman">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #87ceeb 0%, #4682b4 100%);">
+                                <div class="hero-icon">👻</div>
+                            </div>
+                            <h3 class="hero-name">Invisible Woman</h3>
+                            <span class="hero-team">Fantastic Four</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Invisible Woman</h3>
+                            <p class="hero-real-name">Susan Storm</p>
+                            <p class="hero-description">Can become invisible and create force fields.</p>
+                            <div class="hero-powers">
+                                <span>👻 Invisibility</span>
+                                <span>🛡️ Force Fields</span>
+                                <span>💫 Energy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="fantastic" data-hero-image="human-torch">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #ff4500 0%, #ff6347 100%);">
+                                <div class="hero-icon">🔥</div>
+                            </div>
+                            <h3 class="hero-name">Human Torch</h3>
+                            <span class="hero-team">Fantastic Four</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Human Torch</h3>
+                            <p class="hero-real-name">Johnny Storm</p>
+                            <p class="hero-description">Can ignite and fly, controlling fire.</p>
+                            <div class="hero-powers">
+                                <span>🔥 Fire</span>
+                                <span>✈️ Flight</span>
+                                <span>💥 Explosions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="fantastic" data-hero-image="the-thing">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #cd853f 0%, #8b4513 100%);">
+                                <div class="hero-icon">🪨</div>
+                            </div>
+                            <h3 class="hero-name">The Thing</h3>
+                            <span class="hero-team">Fantastic Four</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>The Thing</h3>
+                            <p class="hero-real-name">Ben Grimm</p>
+                            <p class="hero-description">Super-strong hero with a stone body.</p>
+                            <div class="hero-powers">
+                                <span>💪 Super Strength</span>
+                                <span>🛡️ Durability</span>
+                                <span>🪨 Stone Skin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X-Men -->
+                <div class="hero-card" data-category="xmen" data-hero-image="wolverine">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);">
+                                <div class="hero-icon">🐺</div>
+                            </div>
+                            <h3 class="hero-name">Wolverine</h3>
+                            <span class="hero-team">X-Men</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Wolverine</h3>
+                            <p class="hero-real-name">Logan</p>
+                            <p class="hero-description">Mutant with regeneration and adamantium claws.</p>
+                            <div class="hero-powers">
+                                <span>🗡️ Claws</span>
+                                <span>💚 Regeneration</span>
+                                <span>⚔️ Fighter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="xmen" data-hero-image="professor-x">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #4b0082 0%, #2e0854 100%);">
+                                <div class="hero-icon">🧠</div>
+                            </div>
+                            <h3 class="hero-name">Professor X</h3>
+                            <span class="hero-team">X-Men</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Professor X</h3>
+                            <p class="hero-real-name">Charles Xavier</p>
+                            <p class="hero-description">The most powerful telepath and founder of the X-Men.</p>
+                            <div class="hero-powers">
+                                <span>🧠 Telepathy</span>
+                                <span>👁️ Mind Control</span>
+                                <span>📚 Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="xmen" data-hero-image="cyclops">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);">
+                                <div class="hero-icon">👁️</div>
+                            </div>
+                            <h3 class="hero-name">Cyclops</h3>
+                            <span class="hero-team">X-Men</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Cyclops</h3>
+                            <p class="hero-real-name">Scott Summers</p>
+                            <p class="hero-description">X-Men strategist with powerful optic blasts.</p>
+                            <div class="hero-powers">
+                                <span>👁️ Optic Blasts</span>
+                                <span>⚔️ Leadership</span>
+                                <span>🎯 Accuracy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card" data-category="xmen" data-hero-image="storm">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hero-image" style="background: linear-gradient(135deg, #ffffff 0%, #b0c4de 100%);">
+                                <div class="hero-icon">⛈️</div>
+                            </div>
+                            <h3 class="hero-name">Storm</h3>
+                            <span class="hero-team">X-Men</span>
+                        </div>
+                        <div class="card-back">
+                            <h3>Storm</h3>
+                            <p class="hero-real-name">Ororo Munroe</p>
+                            <p class="hero-description">Weather goddess, controlling the elements.</p>
+                            <div class="hero-powers">
+                                <span>⛈️ Weather</span>
+                                <span>⚡ Lightning</span>
+                                <span>💨 Wind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams" class="section teams-section">
+        <div class="container">
+            <h2 class="section-title">Legendary Teams</h2>
+            <p class="section-subtitle">United forces of the greatest heroes</p>
+
+            <!-- Avengers Team -->
+            <div class="team-block avengers-team">
+                <h3 class="team-title">
+                    <span class="team-icon">🛡️</span>
+                    The Avengers
+                </h3>
+                <p class="team-description">
+                    The Avengers - Earth's greatest team of superheroes, created to protect the planet from threats that no single hero can handle.
+                </p>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #c41e3a, #8b0000);">🦾</div>
+                        <span>Iron Man</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #0a3161, #003d82);">🛡️</div>
+                        <span>Captain America</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #4169e1, #1e3a8a);">⚡</div>
+                        <span>Thor</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #228b22, #006400);">💚</div>
+                        <span>Hulk</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #8b0000, #4a0000);">🏹</div>
+                        <span>Hawkeye</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #1a1a1a, #000);">🕷️</div>
+                        <span>Black Widow</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Defenders Team with Audio -->
+            <div class="team-block defenders-team">
+                <h3 class="team-title">
+                    <span class="team-icon">🥋</span>
+                    The Defenders
+                    <span class="audio-badge">🔊 With Audio</span>
+                </h3>
+                <p class="team-description">
+                    The Defenders - a team of street-level heroes from New York, fighting crime and mystical threats.
+                </p>
+                <div class="defenders-grid">
+                    <!-- Luke Cage -->
+                    <div class="defender-card">
+                        <div class="defender-content">
+                            <div class="defender-avatar" style="background: linear-gradient(135deg, #ffd700, #daa520);">
+                                <div class="defender-icon">🥋</div>
+                            </div>
+                            <h4 class="defender-name">Luke Cage</h4>
+                            <p class="defender-subtitle">Hero of Harlem</p>
+                            <p class="defender-desc">Unbreakable skin and superhuman strength</p>
+                            <button class="audio-btn" data-hero="luke-cage">
+                                <span class="audio-icon">▶️</span>
+                                <span class="audio-text">Play Theme</span>
+                            </button>
+                            <audio id="audio-luke-cage" src="assets/audio/luke-cage.mp3"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Daredevil -->
+                    <div class="defender-card">
+                        <div class="defender-content">
+                            <div class="defender-avatar" style="background: linear-gradient(135deg, #8b0000, #4a0000);">
+                                <div class="defender-icon">👊</div>
+                            </div>
+                            <h4 class="defender-name">Daredevil</h4>
+                            <p class="defender-subtitle">Man Without Fear</p>
+                            <p class="defender-desc">Blind lawyer with heightened senses</p>
+                            <button class="audio-btn" data-hero="daredevil">
+                                <span class="audio-icon">▶️</span>
+                                <span class="audio-text">Play Theme</span>
+                            </button>
+                            <audio id="audio-daredevil" src="assets/audio/daredevil.mp3"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Jessica Jones -->
+                    <div class="defender-card">
+                        <div class="defender-content">
+                            <div class="defender-avatar" style="background: linear-gradient(135deg, #9370db, #4b0082);">
+                                <div class="defender-icon">💜</div>
+                            </div>
+                            <h4 class="defender-name">Jessica Jones</h4>
+                            <p class="defender-subtitle">Private Investigator</p>
+                            <p class="defender-desc">Super strength and a troubled past</p>
+                            <button class="audio-btn" data-hero="jessica-jones">
+                                <span class="audio-icon">▶️</span>
+                                <span class="audio-text">Play Theme</span>
+                            </button>
+                            <audio id="audio-jessica-jones" src="assets/audio/jessica-jones.mp3"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Iron Fist -->
+                    <div class="defender-card">
+                        <div class="defender-content">
+                            <div class="defender-avatar" style="background: linear-gradient(135deg, #00ff00, #008000);">
+                                <div class="defender-icon">✊</div>
+                            </div>
+                            <h4 class="defender-name">Iron Fist</h4>
+                            <p class="defender-subtitle">Living Weapon</p>
+                            <p class="defender-desc">Mystical power of the Iron Fist</p>
+                            <button class="audio-btn" data-hero="iron-fist">
+                                <span class="audio-icon">▶️</span>
+                                <span class="audio-text">Play Theme</span>
+                            </button>
+                            <audio id="audio-iron-fist" src="assets/audio/iron-fist.mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fantastic Four Team -->
+            <div class="team-block fantastic-team">
+                <h3 class="team-title">
+                    <span class="team-icon">4️⃣</span>
+                    Fantastic Four
+                </h3>
+                <p class="team-description">
+                    The Fantastic Four - Marvel's first family, who gained superpowers from cosmic radiation.
+                </p>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #4169e1, #0047ab);">🔬</div>
+                        <span>Mr. Fantastic</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #87ceeb, #4682b4);">👻</div>
+                        <span>Invisible Woman</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #ff4500, #ff6347);">🔥</div>
+                        <span>Human Torch</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #cd853f, #8b4513);">🪨</div>
+                        <span>The Thing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- X-Men Team -->
+            <div class="team-block xmen-team">
+                <h3 class="team-title">
+                    <span class="team-icon">✖️</span>
+                    X-Men
+                </h3>
+                <p class="team-description">
+                    The X-Men - a team of mutants fighting for peaceful coexistence between humans and mutants.
+                </p>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #ffd700, #b8860b);">🐺</div>
+                        <span>Wolverine</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #4b0082, #2e0854);">🧠</div>
+                        <span>Professor X</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #dc143c, #8b0000);">👁️</div>
+                        <span>Cyclops</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #fff, #b0c4de);">⛈️</div>
+                        <span>Storm</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #ff1493, #c71585);">🔥</div>
+                        <span>Jean Grey</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #800080, #4b0082);">🧲</div>
+                        <span>Magneto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section timeline-section">
+        <div class="container">
+            <h2 class="section-title">MCU Timeline</h2>
+            <p class="section-subtitle">Journey through the Marvel Cinematic Universe</p>
+
+            <div class="timeline">
+                <div class="timeline-item" data-phase="1">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Phase 1: The Beginning</h3>
+                        <p class="timeline-year">2008-2012</p>
+                        <ul class="timeline-movies">
+                            <li>🦾 Iron Man (2008)</li>
+                            <li>💚 The Incredible Hulk (2008)</li>
+                            <li>🦾 Iron Man 2 (2010)</li>
+                            <li>⚡ Thor (2011)</li>
+                            <li>🛡️ Captain America: The First Avenger (2011)</li>
+                            <li>⭐ The Avengers (2012)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="2">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Phase 2: Expansion</h3>
+                        <p class="timeline-year">2013-2015</p>
+                        <ul class="timeline-movies">
+                            <li>🦾 Iron Man 3 (2013)</li>
+                            <li>⚡ Thor: The Dark World (2013)</li>
+                            <li>🛡️ Captain America: The Winter Soldier (2014)</li>
+                            <li>🌌 Guardians of the Galaxy (2014)</li>
+                            <li>🤖 Avengers: Age of Ultron (2015)</li>
+                            <li>🐜 Ant-Man (2015)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="3">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Phase 3: Infinity War</h3>
+                        <p class="timeline-year">2016-2019</p>
+                        <ul class="timeline-movies">
+                            <li>🛡️ Captain America: Civil War (2016)</li>
+                            <li>🧙 Doctor Strange (2016)</li>
+                            <li>🌌 Guardians of the Galaxy Vol. 2 (2017)</li>
+                            <li>🕷️ Spider-Man: Homecoming (2017)</li>
+                            <li>⚡ Thor: Ragnarok (2017)</li>
+                            <li>🐆 Black Panther (2018)</li>
+                            <li>♾️ Avengers: Infinity War (2018)</li>
+                            <li>🐜 Ant-Man and the Wasp (2018)</li>
+                            <li>💫 Captain Marvel (2019)</li>
+                            <li>⚡ Avengers: Endgame (2019)</li>
+                            <li>🕷️ Spider-Man: Far From Home (2019)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="4">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Phase 4: Multiverse</h3>
+                        <p class="timeline-year">2021-2023</p>
+                        <ul class="timeline-movies">
+                            <li>🕷️ Spider-Man: No Way Home (2021)</li>
+                            <li>🧙 Doctor Strange in the Multiverse of Madness (2022)</li>
+                            <li>⚡ Thor: Love and Thunder (2022)</li>
+                            <li>🐆 Black Panther: Wakanda Forever (2022)</li>
+                            <li>🐜 Ant-Man and the Wasp: Quantumania (2023)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section quiz-section">
+        <div class="container">
+            <h2 class="section-title">Which Marvel Superhero Are You?</h2>
+            <p class="section-subtitle">Answer the questions and discover your hero</p>
+
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-content" id="quizContent">
+                    <div class="question-counter">
+                        Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span>
+                    </div>
+                    <h3 class="quiz-question" id="quizQuestion">Loading question...</h3>
+                    <div class="quiz-options" id="quizOptions">
+                        <!-- Options will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="quiz-result hidden" id="quizResult">
+                    <div class="result-hero">
+                        <div class="result-icon" id="resultIcon">🦸</div>
+                        <h3 class="result-name" id="resultName">Hero Name</h3>
+                        <p class="result-description" id="resultDescription">Hero Description</p>
+                        <button class="cta-button" onclick="restartQuiz()">Take Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">MARVEL UNIVERSE</h3>
+                    <p class="footer-text">Explore the infinite universe of the greatest superheroes of all time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#heroes">Heroes</a></li>
+                        <li><a href="#teams">Teams</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Twitter">
+                            <img src="assets/icons/twitter.png" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link" title="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marvel Universe Fan Site. All rights reserved.</p>
+                <p class="footer-disclaimer">This is a fan site. Marvel and all related characters are property of Marvel Entertainment, LLC.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+
+    <!-- Modal for Hero Image -->
+<div class="hero-modal" id="heroModal">
+    <div class="modal-overlay" onclick="closeHeroModal()"></div>
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeHeroModal()">&times;</span>
+        <img id="modalHeroImage" src="" alt="Hero Image">
+        <h3 id="modalHeroName"></h3>
+    </div>
+</div>
+
+
+</body>
+</html>
+
